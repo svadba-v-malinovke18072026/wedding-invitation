@@ -108,22 +108,40 @@
             display: block;
         }
 
-        .address-card {
-            position: absolute;
-            top: -131px;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: #523C31;
-            height: 50px;
-            width: 555px;
-            text-align: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-            box-sizing: border-box;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+.address-card {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #523C31;
+    padding: 12px 24px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 40px;
+    white-space: nowrap;
+}
 
+/* Адаптация под разные экраны */
+@media (max-width: 600px) {
+    .address-card {
+        padding: 8px 16px;
+    }
+    .address-card a {
+        font-size: 0.75rem;
+    }
+}
+
+@media (max-width: 400px) {
+    .address-card {
+        padding: 6px 12px;
+    }
+    .address-card a {
+        font-size: 0.65rem;
+    }
+}
         .address-card a {
             color: #F2E0C9;
             text-decoration: none;

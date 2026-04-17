@@ -138,6 +138,105 @@
             justify-content: center;
         }
 
+        /* Стили для кнопок внутри Slice 5 */
+        .slice-5-wrapper {
+            position: relative;
+            width: 100%;
+        }
+
+        .slice-5-wrapper img {
+            width: 100%;
+            display: block;
+        }
+
+        /* Кнопка анкеты (в верхней части Slice 5) */
+        .anketa-btn {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #523C31;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 48px;
+            white-space: nowrap;
+            padding: 1.2% 5%;
+            width: 85%;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            z-index: 5;
+            border: 1px solid rgba(242,224,201,0.4);
+            top: 12%;
+        }
+
+        .anketa-btn a {
+            color: #F2E0C9;
+            text-decoration: none;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: clamp(0.75rem, 4vw, 1rem);
+            letter-spacing: 0.5px;
+            width: 100%;
+            justify-content: center;
+        }
+
+        .anketa-btn i {
+            font-size: 1.1em;
+        }
+
+        .anketa-btn:hover {
+            background: #6e4f3f;
+            transform: translateX(-50%) scale(1.02);
+        }
+
+        /* Кнопка "Найди себя" (в самом низу Slice 5) */
+        .findme-btn {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #DCC29E;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 48px;
+            white-space: nowrap;
+            padding: 1.2% 5%;
+            width: 85%;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            z-index: 5;
+            border: none;
+            bottom: 8%;
+        }
+
+        .findme-btn a {
+            color: #3A2A21;
+            text-decoration: none;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: clamp(0.75rem, 4vw, 1rem);
+            letter-spacing: 0.5px;
+            width: 100%;
+            justify-content: center;
+        }
+
+        .findme-btn i {
+            font-size: 1.1em;
+        }
+
+        .findme-btn:hover {
+            background: #e9d3b0;
+            transform: translateX(-50%) scale(1.02);
+        }
+
         /* Адаптация для телефонов */
         @media (max-width: 480px) {
             .timer-number {
@@ -154,6 +253,16 @@
             .address-card a {
                 font-size: 3.5vw;
             }
+            .anketa-btn {
+                top: 10%;
+                padding: 2% 5%;
+                width: 88%;
+            }
+            .findme-btn {
+                bottom: 6%;
+                padding: 2% 5%;
+                width: 88%;
+            }
         }
 
         @media (max-width: 380px) {
@@ -164,6 +273,14 @@
             }
             .address-card a {
                 font-size: 3vw;
+            }
+            .anketa-btn {
+                top: 8%;
+                width: 90%;
+            }
+            .findme-btn {
+                bottom: 5%;
+                width: 90%;
             }
         }
     </style>
@@ -176,7 +293,7 @@
     <!-- Slice 2 -->
     <img class="slice" src="Slice 2.png" alt="приглашение и календарь">
     
-    <!-- Slice 3 с таймером и кнопкой -->
+    <!-- Slice 3 с таймером и кнопкой карты -->
     <div class="timer-wrapper">
         <img src="Slice 3.png" alt="таймер фон">
         <div class="timer-card">
@@ -206,10 +323,28 @@
     
     <!-- Slice 4 -->
     <img class="slice" src="Slice 4.png" alt="адрес фон">
+
+    <!-- Slice 5 с КНОПКОЙ АНКЕТЫ (вверху) и КНОПКОЙ НАЙДИ СЕБЯ (внизу) -->
+    <div class="slice-5-wrapper">
+        <img src="Slice 5.png" alt="ваши фото">
+        <!-- Кнопка анкеты (ссылка на форму) расположена в верхней части -->
+        <div class="anketa-btn" onclick="window.open('https://forms.gle/43Xx38hsGT723tGV6', '_blank')">
+            <a href="javascript:void(0)">
+                <i class="fas fa-pen-alt"></i> Заполнить анкету
+            </a>
+        </div>
+        <!-- Кнопка заглушка "Найди себя" в самом низу -->
+        <div class="findme-btn" onclick="alert('Скоро здесь появится ссылка на архив с фотографиями! Следите за обновлениями :)')">
+            <a href="javascript:void(0)">
+                <i class="fas fa-camera"></i> Найди себя
+            </a>
+        </div>
+    </div>
 </div>
 
 <script>
     function updateTimer() {
+        // Дата свадьбы: 18 июля 2026, 00:00:00 (можно изменить время, если нужно)
         const weddingDate = new Date(2026, 6, 18, 0, 0, 0);
         const now = new Date();
         const diff = weddingDate - now;

@@ -27,9 +27,7 @@
             width: 100%;
             margin: 0 auto;
             background: #FFFCF8;
-            border-radius: 0;
             overflow: hidden;
-            box-shadow: none;
         }
 
         .slice {
@@ -43,7 +41,7 @@
             display: block;
         }
 
-        /* ===== ВЕРХНЯЯ ПЛАШКА С ТАЙМЕРОМ ===== */
+        /* ===== ТАЙМЕР ===== */
         .timer-wrapper {
             position: relative;
             width: 100%;
@@ -99,7 +97,12 @@
             text-transform: uppercase;
         }
 
-        /* ===== КНОПКА ===== */
+        /* ===== КНОПКА ТЕПЕРЬ НА Slice 4 ===== */
+        .slice-4-wrapper {
+            position: relative;
+            width: 100%;
+        }
+
         .address-card {
             position: absolute;
             left: 50%;
@@ -113,8 +116,7 @@
             border-radius: 0px;
             white-space: nowrap;
             padding: 10px 24px;
-            top: auto;
-            bottom: 100px;
+            top: -30px;   /* ← МЕНЯЙ ЭТО — кнопка будет двигаться */
             height: auto;
             width: auto;
             min-width: 550px;
@@ -139,9 +141,9 @@
                 gap: 1rem;
             }
             .address-card {
-                top: 380px;  /* ← ФИКСИРОВАННОЕ ЗНАЧЕНИЕ ДЛЯ ТЕЛЕФОНА */
-                padding: 6px 12px;
+                top: -20px;
                 min-width: 280px;
+                padding: 6px 12px;
             }
             .address-card a {
                 font-size: 0.7rem;
@@ -151,13 +153,10 @@
 </head>
 <body>
 <div class="invitation">
-    <!-- Slice 1 -->
     <img class="slice" src="Slice 1.png" alt="наконец-то мы женимся">
-    
-    <!-- Slice 2 -->
     <img class="slice" src="Slice 2.png" alt="приглашение и календарь">
     
-    <!-- Slice 3 с таймером и кнопкой -->
+    <!-- Slice 3 с таймером -->
     <div class="timer-wrapper">
         <img src="Slice 3.png" alt="таймер фон">
         <div class="timer-card">
@@ -177,16 +176,17 @@
                 </div>
             </div>
         </div>
-        <!-- Кнопка -->
+    </div>
+    
+    <!-- Slice 4 с кнопкой -->
+    <div class="slice-4-wrapper">
+        <img src="Slice 4.png" alt="адрес фон">
         <div class="address-card">
             <a href="https://go.2gis.com/1XghJ" target="_blank">
                 <i class="fas fa-map-marker-alt"></i> Посмотреть на карте
             </a>
         </div>
     </div>
-    
-    <!-- Slice 4 -->
-    <img class="slice" src="Slice 4.png" alt="адрес фон">
 </div>
 
 <script>
@@ -194,23 +194,19 @@
         const weddingDate = new Date(2026, 6, 18, 0, 0, 0);
         const now = new Date();
         const diff = weddingDate - now;
-
         if (diff <= 0) {
             document.getElementById('days').innerText = '00';
             document.getElementById('hours').innerText = '00';
             document.getElementById('minutes').innerText = '00';
             return;
         }
-
         const days = Math.floor(diff / (1000 * 60 * 60 * 24));
         const hours = Math.floor((diff % (86400000)) / 3600000);
         const minutes = Math.floor((diff % 3600000) / 60000);
-
         document.getElementById('days').innerText = days.toString().padStart(2, '0');
         document.getElementById('hours').innerText = hours.toString().padStart(2, '0');
         document.getElementById('minutes').innerText = minutes.toString().padStart(2, '0');
     }
-
     updateTimer();
     setInterval(updateTimer, 60000);
 </script>

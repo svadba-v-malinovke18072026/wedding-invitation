@@ -159,16 +159,13 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 48px;
             white-space: nowrap;
-            padding: 1.2% 5%;
-            width: 85%;
+            padding: 1.7% 5%;
+            width: 74%;
             cursor: pointer;
             transition: all 0.2s ease;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-            z-index: 5;
             border: 1px solid rgba(242,224,201,0.4);
-            top: 12%;
+            top: 1.2%;
         }
 
         .anketa-btn a {
@@ -203,16 +200,14 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 48px;
             white-space: nowrap;
-            padding: 1.2% 5%;
-            width: 85%;
+            padding: 1.7% 5%;
+            width: 39%;
             cursor: pointer;
             transition: all 0.2s ease;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
             z-index: 5;
             border: none;
-            bottom: 8%;
+            bottom: 18.9%;
         }
 
         .findme-btn a {
@@ -237,50 +232,43 @@
             transform: translateX(-50%) scale(1.02);
         }
 
-        /* Адаптация для телефонов */
-        @media (max-width: 480px) {
-            .timer-number {
-                font-size: 6vw;
-            }
-            .timer-digits {
-                gap: 5%;
-            }
-            .address-card {
-                top: 81.5%;
-                width: 85%;
-                padding: 1% 4%;
-            }
-            .address-card a {
-                font-size: 3.5vw;
-            }
+        /* ===== АДАПТАЦИЯ ТОЛЬКО ДЛЯ ТЕЛЕФОНОВ ===== */
+        /* Твой стиль на ПК остаётся нетронутым, здесь только правки для мобилок */
+        @media (max-width: 600px) {
+            /* Кнопка анкеты — чуть шире и выше, чтобы не наезжала на текст */
             .anketa-btn {
-                top: 10%;
-                padding: 2% 5%;
-                width: 88%;
+                top: 0.8%;
+                width: 85%;
+                padding: 2.2% 5%;
             }
+            
+            /* Кнопка "Найди себя" — шире и чуть выше */
             .findme-btn {
-                bottom: 6%;
-                padding: 2% 5%;
-                width: 88%;
+                bottom: 17%;
+                width: 55%;
+                padding: 2.2% 6%;
+            }
+            
+            /* Кнопка карты на таймере — чуть выше */
+            .address-card {
+                top: 83%;
+                width: 85%;
             }
         }
 
-        @media (max-width: 380px) {
-            .address-card {
-                top: 87%;
-                width: 90%;
-                padding: 2% 3%;
-            }
-            .address-card a {
-                font-size: 3vw;
-            }
+        /* Для совсем узких экранов (старые айфоны, 320-380px) */
+        @media (max-width: 450px) {
             .anketa-btn {
-                top: 8%;
-                width: 90%;
+                top: 0.5%;
+                width: 88%;
             }
             .findme-btn {
-                bottom: 5%;
-                width: 90%;
+                bottom: 15%;
+                width: 62%;
+            }
+            .address-card {
+                top: 84%;
+                width: 88%;
             }
         }
     </style>

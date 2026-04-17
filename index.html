@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Свадебное приглашение | Живой таймер</title>
+    <title>Свадебное приглашение | Андрей и Надежда</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
+        /* ========== ГЛОБАЛЬНЫЕ СТИЛИ ========== */
         * {
             margin: 0;
             padding: 0;
@@ -22,6 +23,7 @@
             font-family: 'Inter', 'Arial', sans-serif;
         }
 
+        /* ========== ОСНОВНОЙ КОНТЕЙНЕР ========== */
         .invitation {
             max-width: 600px;
             width: 100%;
@@ -30,6 +32,7 @@
             overflow: hidden;
         }
 
+        /* ========== ОБЩИЕ СТИЛИ ДЛЯ КАРТИНОК ========== */
         .slice {
             width: 100%;
             display: block;
@@ -41,7 +44,20 @@
             display: block;
         }
 
-        /* ===== ТАЙМЕР ===== */
+        /* ========== БЛОК 1: ЗАГОЛОВОК "НАКОНЕЦ-ТО МЫ ЖЕНИМСЯ" ========== */
+        /* Картинка Slice 1.png содержит:
+           - надпись "наконец-то"
+           - крупно "МЫ ЖЕНИМСЯ"
+           - шутливый подзаголовок
+        */
+
+        /* ========== БЛОК 2: ПРИГЛАШЕНИЕ И КАЛЕНДАРЬ ========== */
+        /* Картинка Slice 2.png содержит:
+           - текст приглашения
+           - календарь на июль с выделенным днём 18
+        */
+
+        /* ========== БЛОК 3: ТАЙМЕР ДО СВАДЬБЫ ========== */
         .timer-wrapper {
             position: relative;
             width: 100%;
@@ -52,6 +68,7 @@
             display: block;
         }
 
+        /* Плашка с таймером (накладывается поверх Slice 3.png) */
         .timer-card {
             position: absolute;
             top: 15%;
@@ -97,12 +114,20 @@
             text-transform: uppercase;
         }
 
-        /* ===== КНОПКА ТЕПЕРЬ НА Slice 4 ===== */
-        .slice-4-wrapper {
+        /* ========== БЛОК 4: МЕСТО ПРОВЕДЕНИЯ И КНОПКА С КАРТОЙ ========== */
+        .place-wrapper {
             position: relative;
             width: 100%;
         }
 
+        /* Картинка Slice 4.png содержит:
+           - надпись "Место проведения"
+           - "Коттедж: Ля Покровка"
+           - "с. Покровка"
+           - информацию о дресс-коде и ночёвке
+        */
+
+        /* Кнопка с картой (накладывается поверх Slice 4.png) */
         .address-card {
             position: absolute;
             left: 50%;
@@ -116,7 +141,7 @@
             border-radius: 0px;
             white-space: nowrap;
             padding: 10px 24px;
-            top: -25px;   /* ← МЕНЯЙ ЭТО — кнопка будет двигаться */
+            top: -25px;
             height: auto;
             width: auto;
             min-width: 550px;
@@ -132,7 +157,7 @@
             font-size: 0.9rem;
         }
 
-        /* Адаптация для телефонов */
+        /* ========== АДАПТАЦИЯ ДЛЯ ТЕЛЕФОНОВ ========== */
         @media (max-width: 480px) {
             .timer-number {
                 font-size: 28px;
@@ -153,12 +178,25 @@
 </head>
 <body>
 <div class="invitation">
-    <img class="slice" src="Slice 1.png" alt="наконец-то мы женимся">
-    <img class="slice" src="Slice 2.png" alt="приглашение и календарь">
     
-    <!-- Slice 3 с таймером -->
+    <!-- ============================================ -->
+    <!-- БЛОК 1: ЗАГОЛОВОК "НАКОНЕЦ-ТО МЫ ЖЕНИМСЯ"    -->
+    <!-- ============================================ -->
+    <img class="slice" src="Slice 1.png" alt="Заголовок: наконец-то мы женимся">
+    
+    <!-- ============================================ -->
+    <!-- БЛОК 2: ПРИГЛАШЕНИЕ И КАЛЕНДАРЬ             -->
+    <!-- ============================================ -->
+    <img class="slice" src="Slice 2.png" alt="Приглашение и календарь на июль">
+    
+    <!-- ============================================ -->
+    <!-- БЛОК 3: ТАЙМЕР ДО СВАДЬБЫ                   -->
+    <!-- ============================================ -->
     <div class="timer-wrapper">
-        <img src="Slice 3.png" alt="таймер фон">
+        <!-- Фоновая картинка для таймера -->
+        <img src="Slice 3.png" alt="Фон для таймера">
+        
+        <!-- Плашка с таймером (поверх фона) -->
         <div class="timer-card">
             <div class="timer-title">ДО НАШЕЙ ВСТРЕЧИ ОСТАЛОСЬ</div>
             <div class="timer-digits">
@@ -178,36 +216,50 @@
         </div>
     </div>
     
-    <!-- Slice 4 с кнопкой -->
-    <div class="slice-4-wrapper">
-        <img src="Slice 4.png" alt="адрес фон">
+    <!-- ============================================ -->
+    <!-- БЛОК 4: МЕСТО ПРОВЕДЕНИЯ И КАРТА            -->
+    <!-- ============================================ -->
+    <div class="place-wrapper">
+        <!-- Фоновая картинка с адресом и дресс-кодом -->
+        <img src="Slice 4.png" alt="Место проведения: коттедж Ля Покровка, дресс-код">
+        
+        <!-- Кнопка с картой (поверх фона) -->
         <div class="address-card">
             <a href="https://go.2gis.com/1XghJ" target="_blank">
                 <i class="fas fa-map-marker-alt"></i> Посмотреть на карте
             </a>
         </div>
     </div>
+    
 </div>
 
+<!-- ========== СКРИПТ ТАЙМЕРА ========== -->
 <script>
     function updateTimer() {
+        // Дата свадьбы: 18 июля 2026 года
         const weddingDate = new Date(2026, 6, 18, 0, 0, 0);
         const now = new Date();
         const diff = weddingDate - now;
+        
         if (diff <= 0) {
             document.getElementById('days').innerText = '00';
             document.getElementById('hours').innerText = '00';
             document.getElementById('minutes').innerText = '00';
             return;
         }
+        
         const days = Math.floor(diff / (1000 * 60 * 60 * 24));
         const hours = Math.floor((diff % (86400000)) / 3600000);
         const minutes = Math.floor((diff % 3600000) / 60000);
+        
         document.getElementById('days').innerText = days.toString().padStart(2, '0');
         document.getElementById('hours').innerText = hours.toString().padStart(2, '0');
         document.getElementById('minutes').innerText = minutes.toString().padStart(2, '0');
     }
+    
+    // Запускаем таймер
     updateTimer();
+    // Обновляем каждую минуту
     setInterval(updateTimer, 60000);
 </script>
 </body>

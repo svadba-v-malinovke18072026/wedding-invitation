@@ -99,7 +99,11 @@
             text-transform: uppercase;
         }
 
-        /* ===== КНОПКА (полностью адаптивная) ===== */
+        /* ===== КНОПКА НА Slice 3 (привязана к низу) ===== */
+        .timer-wrapper {
+            position: relative;
+        }
+
         .address-card {
             position: absolute;
             left: 50%;
@@ -113,7 +117,7 @@
             border-radius: 40px;
             white-space: nowrap;
             padding: 10px 24px;
-            top: 75%;
+            bottom: 8%;  /* отступ от НИЗА Slice 3 */
             height: auto;
             width: auto;
             min-width: 200px;
@@ -129,27 +133,19 @@
             font-size: clamp(0.7rem, 3.5vw, 0.9rem);
         }
 
-        /* Адаптация для телефонов */
+        /* Адаптация для телефонов — корректируем отступ от низа */
         @media (max-width: 480px) {
             .address-card {
-                top: 72%;
+                bottom: 5%;  /* на телефоне чуть ближе к низу */
                 padding: 8px 16px;
                 min-width: 160px;
-                border-radius: 30px;
-            }
-            .address-card a {
-                gap: 6px;
             }
         }
 
         @media (max-width: 380px) {
             .address-card {
-                top: 70%;
+                bottom: 3%;
                 padding: 6px 12px;
-                min-width: 140px;
-            }
-            .address-card a {
-                font-size: 0.65rem;
             }
         }
     </style>
@@ -182,7 +178,7 @@
                 </div>
             </div>
         </div>
-        <!-- Кнопка -->
+        <!-- Кнопка привязана к низу Slice 3 -->
         <div class="address-card">
             <a href="https://go.2gis.com/1XghJ" target="_blank">
                 <i class="fas fa-map-marker-alt"></i> Посмотреть на карте

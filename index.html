@@ -114,10 +114,10 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 40px;
+            border-radius: 0px;
             white-space: nowrap;
             padding: 10px 24px;
-            bottom: 8%;  /* отступ от НИЗА Slice 3 */
+            bottom: 8%;  
             height: auto;
             width: auto;
             min-width: 200px;
@@ -134,13 +134,20 @@
         }
 
         /* Адаптация для телефонов — корректируем отступ от низа */
-        @media (max-width: 480px) {
-            .address-card {
-                bottom: 5%;  /* на телефоне чуть ближе к низу */
-                padding: 8px 16px;
-                min-width: 160px;
-            }
-        }
+@media (max-width: 480px) {
+    .address-card {
+        padding: 6px 12px;
+        top: 65%;  
+        height: 45px;
+        width: 220px;
+    }
+    .address-card a {
+        font-size: 0.7rem;
+    }
+    .timer-number {
+        font-size: 28px;
+    }
+}
 
         @media (max-width: 380px) {
             .address-card {

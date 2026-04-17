@@ -18,18 +18,16 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 1rem;
+            padding: 0; /* убрал отступы */
             font-family: 'Inter', 'Arial', sans-serif;
         }
 
         .invitation {
-            max-width: 600px;
+            max-width: 100%; /* теперь на всю ширину */
             width: 100%;
             margin: 0 auto;
             background: #FFFCF8;
-            border-radius: 32px;
             overflow: hidden;
-            box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.1);
         }
 
         .slice {
@@ -56,31 +54,30 @@
 
         .timer-card {
             position: absolute;
-            top: 60px;
+            top: 15%;  /* адаптивный отступ */
             left: 0;
             width: 100%;
-            height: 170px;
             background: #523C31;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 1rem;
+            padding: 0.8rem;
         }
 
         .timer-title {
-            font-size: 0.9rem;
-            letter-spacing: 4px;
+            font-size: clamp(0.7rem, 4vw, 0.9rem);
+            letter-spacing: 2px;
             color: #F2E0C9;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.3rem;
         }
 
         .timer-digits {
             display: flex;
-            gap: 2rem;
+            gap: clamp(0.8rem, 5vw, 2rem);
             justify-content: center;
-            margin-bottom: 0.3rem;
+            margin-bottom: 0.2rem;
         }
 
         .timer-item {
@@ -88,14 +85,14 @@
         }
 
         .timer-number {
-            font-size: 50px;
+            font-size: clamp(1.5rem, 8vw, 50px);
             font-weight: 700;
             color: #FFFCF8;
             font-family: monospace;
         }
 
         .timer-label {
-            font-size: 0.6rem;
+            font-size: clamp(0.5rem, 3vw, 0.7rem);
             color: #DCC29E;
             text-transform: uppercase;
         }
@@ -113,35 +110,48 @@
 
         .address-card {
             position: absolute;
-            top: -131px;
+            top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            background: #523C31;
-            height: 50px;
-            width: 555px;
+            background: #5C3A21;
+            padding: 10px 20px;
+            border-radius: 40px;
             text-align: center;
             box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-            box-sizing: border-box;
             display: flex;
             align-items: center;
             justify-content: center;
+            white-space: nowrap;
         }
 
         .address-card a {
             color: #F2E0C9;
             text-decoration: none;
             font-weight: 600;
-            font-size: 0.9rem;
+            font-size: clamp(0.7rem, 3.5vw, 0.9rem);
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
         }
 
+        /* Адаптация для очень маленьких экранов */
         @media (max-width: 500px) {
-            .timer-number { font-size: 28px; }
-            .timer-digits { gap: 1rem; }
-            .address-card { width: 300px; height: 40px; top: -120px; }
-            .address-card a { font-size: 0.7rem; }
+            .address-card {
+                padding: 6px 12px;
+            }
+            .timer-card {
+                top: 10%;
+                padding: 0.5rem;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .address-card a {
+                font-size: 0.65rem;
+            }
+            .timer-card {
+                top: 8%;
+            }
         }
     </style>
 </head>
@@ -179,7 +189,7 @@
     <div class="address-button-wrapper">
         <img src="Slice 4.png" alt="адрес фон">
         <div class="address-card">
-            <a href="https://go.2gis.com/1XghJ" target="_blank">
+            <a href="https://yandex.ru/maps/-/CPv7B6oD" target="_blank">
                 <i class="fas fa-map-marker-alt"></i> Посмотреть на карте
             </a>
         </div>
